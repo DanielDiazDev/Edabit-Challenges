@@ -32,4 +32,9 @@ Test.assertEquals(addition(7, 3), 10)
 Test.assertEquals(addition(88, 2), 90)
 
 ---------------------
+estimación: 4 minutos
+Tiempo real: 2 minutos
+
+##########################
+
 
