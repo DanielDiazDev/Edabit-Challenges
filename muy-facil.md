@@ -13,9 +13,23 @@ Don't forget to return the result.
 If you get stuck on a challenge, find help in the Resources tab.
 If you're really stuck, unlock solutions in the Solutions tab.
 
+--------------------
+
+public class Program
+{
+    public static int Sum(int a, int b)
+    {
+        int result = a + b;
+        return result;
+    }
+}
+
 -----------------------------
 
 Test.assertEquals(addition(2, 3), 5)
 Test.assertEquals(addition(-3, -6), -9)
 Test.assertEquals(addition(7, 3), 10)
 Test.assertEquals(addition(88, 2), 90)
+
+---------------------
+
