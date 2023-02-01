@@ -151,4 +151,4 @@ public class Tests
 
 ----------------
 estimacion: 7 minutos
-tiempo real:
+tiempo real: 7 minutos
