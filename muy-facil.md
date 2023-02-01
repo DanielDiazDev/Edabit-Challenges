@@ -51,6 +51,31 @@ Use 365 days as the length of a year for this challenge.
 Ignore leap years and days between last birthday and now.
 Expect only positive integer inputs.
 
+
+-----------------
+public class Program 
+{
+    public static int CalcAge(int age) 
+    {
+			return age * 365;
+    }
+}
+-------------------------
+using System;
+using NUnit.Framework;
+
+[TestFixture]
+public class Tests {
+	[Test]
+	[TestCase(10, Result=3650)]
+	[TestCase(0, Result=0)]
+	[TestCase(73, Result=26645)]
+	public static int CalcAge(int age)
+	{
+		Console.WriteLine($"Input: {age}");
+		return Program.CalcAge(age);
+	}
+}
 ------------------------------
 
 estimación: 4 minutos 
