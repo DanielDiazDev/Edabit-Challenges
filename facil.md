@@ -153,6 +153,9 @@ public class Tests
 estimacion: 7 minutos
 tiempo real: 7 minutos
 
+
+############################
+
 **How Many Vowels?**
 Create a function that takes a string and returns the number (count) of vowels contained within it.
 
