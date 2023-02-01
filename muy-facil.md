@@ -119,10 +119,21 @@ public class Program {
 }
 ---------------------------------
 
-Test.assertEquals(convert(6), 360)
-Test.assertEquals(convert(4), 240)
-Test.assertEquals(convert(8), 480)
-Test.assertEquals(convert(60), 3600)
+using System;
+using NUnit.Framework;
+
+[TestFixture]
+public class Tests {
+	[Test]
+	[TestCase(6, Result=360)]
+	[TestCase(4, Result=240)]
+	[TestCase(8, Result=480)]
+	[TestCase(60, Result=3600)]
+	public static int FixedTest(int a) {
+		Console.WriteLine($"Input: {a}");
+		return Program.convert(a);
+	}
+}
 
 -------------------------------
 
