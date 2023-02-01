@@ -169,6 +169,18 @@ All test cases are one word and only contain letters.
 -----
 code
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Program 
+{
+    public static int CountVowels(string str)
+        {
+            string vocals = "aeiou";
+             return str.Where(x=> vocals.Contains(x)).Count();
+        }
+}
 
 ---
 using NUnit.Framework;
@@ -195,4 +207,4 @@ public class Tests
 
 ----
 estimacion: 7 minutos
-tiempo real: 
+tiempo real: 8 minutos
