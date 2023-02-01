@@ -50,3 +50,9 @@ Notes
 Use 365 days as the length of a year for this challenge.
 Ignore leap years and days between last birthday and now.
 Expect only positive integer inputs.
+
+------------------------------
+
+estimación: 4 minutos 
+Tiempo real: 1 minutos
+
