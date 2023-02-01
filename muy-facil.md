@@ -99,7 +99,12 @@ Notes
 Don't forget to return the result.
 If you get stuck on a challenge, find help in the Resources tab.
 If you're really stuck, unlock solutions in the Solutions tab.
-
+------------
+public class Program {
+	public static int convert(int minutes) {
+		return minutes * 60;
+	}
+}
 ---------------------------------
 
 Test.assertEquals(convert(6), 360)
