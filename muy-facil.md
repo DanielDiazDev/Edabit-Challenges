@@ -53,6 +53,7 @@ Expect only positive integer inputs.
 
 
 -----------------
+
 public class Program 
 {
     public static int CalcAge(int age) 
@@ -60,6 +61,7 @@ public class Program
 			return age * 365;
     }
 }
+
 -------------------------
 using System;
 using NUnit.Framework;
@@ -76,8 +78,36 @@ public class Tests {
 		return Program.CalcAge(age);
 	}
 }
+
 ------------------------------
 
 estimación: 4 minutos 
 Tiempo real: 1 minutos
 
+################################
+
+Convert Minutes into Seconds
+Write a function that takes an integer minutes and converts it to seconds.
+
+Examples
+convert(5) ➞ 300
+
+convert(3) ➞ 180
+
+convert(2) ➞ 120
+Notes
+Don't forget to return the result.
+If you get stuck on a challenge, find help in the Resources tab.
+If you're really stuck, unlock solutions in the Solutions tab.
+
+---------------------------------
+
+Test.assertEquals(convert(6), 360)
+Test.assertEquals(convert(4), 240)
+Test.assertEquals(convert(8), 480)
+Test.assertEquals(convert(60), 3600)
+
+-------------------------------
+
+estimación: 4 minutos
+tiempo real: 1 minuto
