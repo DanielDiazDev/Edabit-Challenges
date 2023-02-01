@@ -152,3 +152,47 @@ public class Tests
 ----------------
 estimacion: 7 minutos
 tiempo real: 7 minutos
+
+**How Many Vowels?**
+Create a function that takes a string and returns the number (count) of vowels contained within it.
+
+Examples
+CountVowels("Celebration") ➞ 5
+
+CountVowels("Palm") ➞ 1
+
+CountVowels("Prediction") ➞ 4
+Notes
+a, e, i, o, u are considered vowels (not y).
+All test cases are one word and only contain letters.
+
+-----
+code
+
+
+---
+using NUnit.Framework;
+
+[TestFixture]
+public class Tests
+{
+  [Test]
+  [TestCase("Celebration", Result=5)]
+  [TestCase("Palm", Result=1)]
+  [TestCase("Prediction", Result=4)]
+  [TestCase("Suite", Result=3)]
+  [TestCase("Quote", Result=3)]
+  [TestCase("Portrait", Result=3)]
+  [TestCase("Steam", Result=2)]
+  [TestCase("Tape", Result=2)]
+  [TestCase("Nightmare", Result=3)]
+  [TestCase("Convention", Result=4)]
+    public static int FixedTest(string str)
+    {
+        return Program.CountVowels(str);
+    }
+}
+
+----
+estimacion: 7 minutos
+tiempo real: 
