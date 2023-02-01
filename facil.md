@@ -53,3 +53,68 @@ public class Tests
 estimacion: 10 minutos
 tiempo real: 5 minutos
 
+
+
+#################################
+
+*****Convert Number to Corresponding Month Name*****
+Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
+
+Number	Month Name
+1	January
+2	February
+3	March
+4	April
+5	May
+6	June
+7	July
+8	August
+9	September
+10	October
+11	November
+12	December
+Examples
+MonthName(3) ➞ "March"
+
+MonthName(12) ➞ "December"
+
+MonthName(6) ➞ "June"
+Notes
+You can expect only integers ranging from 1 to 12 as test input.
+If you get stuck on a challenge, find help in the Resources tab.
+If you're really stuck, unlock solutions in the Solutions tab.
+
+--------
+code
+---------
+test
+
+using NUnit.Framework;
+using System;
+
+[TestFixture]
+public class Tests
+{
+		[Test]
+		[TestCase(1, Result="January")]
+		[TestCase(2, Result="February")]
+		[TestCase(3, Result="March")]
+		[TestCase(4, Result="April")]
+		[TestCase(5, Result="May")]
+		[TestCase(6, Result="June")]
+		[TestCase(7, Result="July")]
+		[TestCase(8, Result="August")]
+		[TestCase(9, Result="September")]
+		[TestCase(10, Result="October")]
+		[TestCase(11, Result="November")]
+		[TestCase(12, Result="December")]
+    public static string MonthName(int num) 
+    {
+				Console.WriteLine($"Input: {num}");
+        return Program.MonthName(num);
+    }
+}
+
+----------------
+estimacion: 7 minutos
+tiempo real:
