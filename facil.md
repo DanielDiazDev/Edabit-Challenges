@@ -1,19 +1,19 @@
 ## Find the Smallest and Biggest Numbers
 ### Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
-Examples
+### Examples
 - FindMinMax([1, 2, 3, 4, 5]) ➞ [1, 5]
 
 - FindMinMax([2334454, 5]) ➞ [5, 2334454]
 
 - FindMinMax([1]) ➞ [1, 1]
 
-Notes
+### Notes
 > All test arrays will have at least one element and are valid.
 
 
 
-Solution
+### Solution
 ```cs
 using System;
 using System.Linq;
@@ -28,7 +28,7 @@ public class Program
 }
 ```
 
-test
+### Test
 
 ```cs
 using NUnit.Framework;
@@ -75,20 +75,20 @@ Number	Month Name
 11	November
 12	December
 
-Examples
+### Examples
 - MonthName(3) ➞ "March"
 
 - MonthName(12) ➞ "December"
 
 - MonthName(6) ➞ "June"
 
-Notes
+### Notes
 
 > You can expect only integers ranging from 1 to 12 as test input.
 > If you get stuck on a challenge, find help in the Resources tab.
 > If you're really stuck, unlock solutions in the Solutions tab.
 
-Solution
+### Solution
 ```cs
 public class Program 
 {
@@ -126,7 +126,7 @@ public class Program
 }
 ```
 
-Test
+### Test
 ```cs
 using NUnit.Framework;
 using System;
