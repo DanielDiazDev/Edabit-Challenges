@@ -117,3 +117,47 @@ public class Tests
 Estimation: 15 minutes
 <br> Real time: 4 minutes
 
+
+
+## Find the Bomb
+### Create a function that finds the word "bomb" in the given string (not case sensitive). If found, return "Duck!!!", otherwise, return "There is no bomb, relax.".
+
+
+
+### Examples
+- Bomb("There is a bomb.") ➞ "Duck!!!"
+
+- Bomb("Hey, did you think there is a bomb?") ➞ "Duck!!!"
+
+- Bomb("This goes boom!!!") ➞ "There is no bomb, relax."
+
+### Notes
+> "bomb" may appear in different cases (i.e. uppercase, lowercase, mixed).
+
+### Solution
+```cs
+
+```
+### Test
+```cs
+using System;
+using NUnit.Framework;
+
+[TestFixture]
+public class Tests
+{
+    [Test]
+[TestCase("There is a bomb.", Result =  "Duck!!!")]
+[TestCase("Hey, did you find it?", Result =  "There is no bomb, relax.")]
+[TestCase("Hey, did you think there is a bomb?", Result =  "Duck!!!")]
+[TestCase("This goes boom!!!", Result =  "There is no bomb, relax.")]
+[TestCase("Hey, did you find the BoMb?", Result =  "Duck!!!")]
+[TestCase("Commotion in the third, a bomb is found!", Result =  "Duck!!!")]
+    public static string FixedTest(string a)
+    {
+        return Program.Bomb(a);
+    }
+}
+```
+Estimation: 
+<br> Real time: 
