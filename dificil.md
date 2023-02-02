@@ -14,6 +14,23 @@
 ### Solution
 ```cs
 
+using System.Linq;
+
+public class Program
+{
+	public static bool Cons(int[] arr)
+	{
+		 int[] orderedArr = arr.OrderBy(x=>x).ToArray();
+           
+            for (int i = 0; i < orderedArr.Length -1; i++)
+            {
+                if (orderedArr[i]+1 != orderedArr[i+1] ) return false;
+            }
+
+            return true;
+       
+	}
+}
 ```
 ### Test
 ```cs
@@ -34,6 +51,6 @@ public class Tests
 
 }
 ```
-Estimation: 
-<br> Real time: 
+Estimation: 20 minutes
+<br> Real time: 13 minutes
 --------------------------
