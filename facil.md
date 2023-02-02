@@ -85,8 +85,8 @@ Number	Month Name
 ### Notes
 
 > - You can expect only integers ranging from 1 to 12 as test input.
-- If you get stuck on a challenge, find help in the Resources tab.
-- If you're really stuck, unlock solutions in the Solutions tab.
+> - If you get stuck on a challenge, find help in the Resources tab.
+> - If you're really stuck, unlock solutions in the Solutions tab.
 
 ### Solution
 ```cs
