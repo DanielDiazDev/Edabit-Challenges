@@ -161,22 +161,22 @@ Estimation: 7 minutes
 
 ############################
 
-**How Many Vowels?**
-Create a function that takes a string and returns the number (count) of vowels contained within it.
+## How Many Vowels?
+### Create a function that takes a string and returns the number (count) of vowels contained within it.
 
-Examples
-CountVowels("Celebration") ➞ 5
+### Examples
+- CountVowels("Celebration") ➞ 5
 
-CountVowels("Palm") ➞ 1
+- CountVowels("Palm") ➞ 1
 
-CountVowels("Prediction") ➞ 4
-Notes
+- CountVowels("Prediction") ➞ 4
+
+### Notes
 a, e, i, o, u are considered vowels (not y).
 All test cases are one word and only contain letters.
 
------
-code
-
+### Solution
+```cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -189,8 +189,9 @@ public class Program
              return str.Where(x=> vocals.Contains(x)).Count();
         }
 }
-
----
+```
+### Test
+```cs
 using NUnit.Framework;
 
 [TestFixture]
@@ -212,7 +213,6 @@ public class Tests
         return Program.CountVowels(str);
     }
 }
-
-----
-estimacion: 7 minutos
-tiempo real: 8 minutos
+```
+Estimation: 7 minutes
+<br> Real time: 8 minutes
