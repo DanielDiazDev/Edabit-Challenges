@@ -9,7 +9,7 @@ Examples
 - FindMinMax([1]) ➞ [1, 1]
 
 Notes
->All test arrays will have at least one element and are valid.
+> All test arrays will have at least one element and are valid.
 
 
 
@@ -76,15 +76,17 @@ Number	Month Name
 12	December
 
 Examples
-MonthName(3) ➞ "March"
+- MonthName(3) ➞ "March"
 
-MonthName(12) ➞ "December"
+- MonthName(12) ➞ "December"
 
-MonthName(6) ➞ "June"
+- MonthName(6) ➞ "June"
+
 Notes
-You can expect only integers ranging from 1 to 12 as test input.
-If you get stuck on a challenge, find help in the Resources tab.
-If you're really stuck, unlock solutions in the Solutions tab.
+
+> You can expect only integers ranging from 1 to 12 as test input.
+> If you get stuck on a challenge, find help in the Resources tab.
+> If you're really stuck, unlock solutions in the Solutions tab.
 
 Solution
 ```cs
