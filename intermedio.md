@@ -83,7 +83,17 @@ Estimation: 14 minutes
 
 ### Solution
 ```cs
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
+public class Program 
+{
+    public static double[] FindLargest(double[][] values) 
+    {
+			return values.Select(x=> x.Max()).ToArray();
+    }
+}
 ```
 ### Test
 ```cs
@@ -105,5 +115,5 @@ public class Tests
 ```
 
 Estimation: 15 minutes
-<br> Real time:  minutes
+<br> Real time: 4 minutes
 
