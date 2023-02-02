@@ -30,7 +30,14 @@ Estimation:
 
 ### Solution
 ```cs
-
+using System.Linq;
+public class Program 
+{
+    public static string ReverseCase(string str) 
+    {
+			return string.Concat(str.Select(x=>char.IsUpper(x)?char.ToLower(x):char.ToUpper(x)));
+    }
+}
 ```
 ### Test
 ```cs
@@ -53,7 +60,7 @@ public class Tests
 }
 ```
 
-Estimation: 
-<br> Real time: 
+Estimation: 14 minutes
+<br> Real time: 10 minutes
 
 -----------------------
