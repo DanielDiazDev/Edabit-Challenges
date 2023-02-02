@@ -1,5 +1,5 @@
-##Find the Smallest and Biggest Numbers
-###Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+## Find the Smallest and Biggest Numbers
+### Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
 Examples
 - FindMinMax([1, 2, 3, 4, 5]) ➞ [1, 5]
@@ -11,11 +11,10 @@ Examples
 Notes
 >All test arrays will have at least one element and are valid.
 
----------------------------
 
 
-Code
-
+Solution
+```cs
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -27,10 +26,11 @@ public class Program
             return new double[] { orderValues.First(), orderValues.Last() };
     }
 }
+```
 
--------------
 test
 
+```cs
 using NUnit.Framework;
 using System;
 [TestFixture]
@@ -49,17 +49,17 @@ public class Tests
     
     }
 }
+```
 
------
-estimacion: 10 minutos
-tiempo real: 5 minutos
+Estimation: 10 minutes
+<br> Real time: 5 minutes
 
 
 
 #################################
 
-*****Convert Number to Corresponding Month Name*****
-Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
+## Convert Number to Corresponding Month Name
+### Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
 
 Number	Month Name
 1	January
@@ -74,6 +74,7 @@ Number	Month Name
 10	October
 11	November
 12	December
+
 Examples
 MonthName(3) ➞ "March"
 
@@ -85,8 +86,8 @@ You can expect only integers ranging from 1 to 12 as test input.
 If you get stuck on a challenge, find help in the Resources tab.
 If you're really stuck, unlock solutions in the Solutions tab.
 
---------
-code
+Solution
+```cs
 public class Program 
 {
     public static string MonthName(int num) 
@@ -121,9 +122,10 @@ public class Program
 			}
     }
 }
----------
-test
+```
 
+Test
+```cs
 using NUnit.Framework;
 using System;
 
@@ -149,10 +151,10 @@ public class Tests
         return Program.MonthName(num);
     }
 }
+```
 
-----------------
-estimacion: 7 minutos
-tiempo real: 7 minutos
+Estimation: 7 minutes
+<br> Real time: 7 minutes
 
 
 ############################
