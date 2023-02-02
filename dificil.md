@@ -94,8 +94,16 @@ Estimation: 20 minutes
 - Single digit numbers should be zero padded.
 ### Solution
 ```cs
-var now = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+using System;
+using System.Linq;
+
+public class Program
+{
+	public static string WeekAfter(string date) {
+		var now = DateTime.ParseExact(date, "dd/MM/yyyy", null);
             return now.AddDays(7).ToString("dd/MM/yyyy");
+	}
+}
 ```
 ### Test
 ```cs
