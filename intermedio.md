@@ -1,16 +1,3 @@
-
-### Examples
-
-### Notes
-
-### Solution
-
-### Test
-
-Estimation: 
-<br> Real time: 
-
------------------------
 ## Reverse the Case
 ### Given a string, create a function to reverse the case. All lower-cased letters should be upper-cased, and vice versa.
 
@@ -136,7 +123,15 @@ Estimation: 15 minutes
 
 ### Solution
 ```cs
-
+using System;
+public class Program
+{
+	public static string Bomb(string txt)
+        {
+            if (txt.ToLower().Contains("bomb")) return "Duck!!!";
+            return "There is no bomb, relax.";
+        }
+}
 ```
 ### Test
 ```cs
@@ -159,5 +154,5 @@ public class Tests
     }
 }
 ```
-Estimation: 
-<br> Real time: 
+Estimation: 15 minutes
+<br> Real time: 11 minutes
