@@ -1,51 +1,42 @@
-
-Return the Sum of Two Numbers
-Create a function that takes two numbers as arguments and returns their sum.
+##  Return the Sum of Two Numbers 
+###  Create a function that takes two numbers as arguments and returns their sum.
 
 Examples
-addition(3, 2) ➞ 5
+- addition(3, 2) ➞ 5
+- addition(-3, -6) ➞ -9
+- addition(7, 3) ➞ 10 
 
-addition(-3, -6) ➞ -9
-
-addition(7, 3) ➞ 10
 Notes
-Don't forget to return the result.
-If you get stuck on a challenge, find help in the Resources tab.
-If you're really stuck, unlock solutions in the Solutions tab.
+> Don't forget to return the result. If you get stuck on a challenge, find help in the Resources tab. If you're really stuck, unlock solutions in the Solutions tab.Don't forget to return the result. If you get stuck on a challenge, find help in the Resources tab. If you're really stuck, unlock solutions in the Solutions tab.
 
---------------------
-
-public class Program
-{
-    public static int Sum(int a, int b)
-    {
-        int result = a + b;
-        return result;
-    }
-}
-
------------------------------
-
+Solution
+```cs
+public class Program { 
+	public static int Sum(int a, int b) { 
+		int result = a + b; 
+		return result; 
+	}}
+```
+Test
+```cs
 using System;
 using NUnit.Framework;
 
 [TestFixture]
-public class Tests
-{
-    [Test]
-    [TestCase(2, 3, Result=5)]
-    [TestCase(-3, -6, Result=-9)]
-  	[TestCase(7, 3, Result=10)]
-    public static int FixedTest(int a, int b)
-    {
-				Console.WriteLine($"Input: {a}, {b}");
-        return Program.Sum(a, b);
-    }
+public class Tests {
+	[Test]
+	[TestCase(6, Result=360)]
+	[TestCase(4, Result=240)]
+	[TestCase(8, Result=480)]
+	[TestCase(60, Result=3600)]
+	public static int FixedTest(int a) {
+		Console.WriteLine($"Input: {a}");
+		return Program.convert(a);
+	}
 }
-
----------------------
-estimación: 4 minutos
-Tiempo real: 2 minutos
+```
+Estimation: 4 minutes
+<br>Real Time: 2 minutes
 
 ##########################
 Convert Age to Days
