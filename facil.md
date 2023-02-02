@@ -56,8 +56,7 @@ Estimation: 10 minutes
 
 
 
-#################################
-
+------------------------------------
 ## Convert Number to Corresponding Month Name
 ### Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
 
@@ -159,8 +158,7 @@ Estimation: 7 minutes
 <br> Real time: 7 minutes
 
 
-############################
-
+------------------------------------
 ## How Many Vowels?
 ### Create a function that takes a string and returns the number (count) of vowels contained within it.
 
