@@ -94,7 +94,8 @@ Estimation: 20 minutes
 - Single digit numbers should be zero padded.
 ### Solution
 ```cs
-
+var now = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+            return now.AddDays(7).ToString("dd/MM/yyyy");
 ```
 ### Test
 ```cs
