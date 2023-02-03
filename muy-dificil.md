@@ -131,7 +131,29 @@ Don't include any values >= 1.
 Both the numerator and denominator are single digit.
 ### Solution
 ```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class Program
+{
+    public static double UniqueFract()
+    {
+			double sum = 0;
+            List<double> fractionsInNumber = new List<double>();
+            for (double denominator = 2; denominator <= 9; denominator ++)
+            {
+                for(double numerator = 1; numerator < denominator; numerator++)
+                {
 
+                    if (!fractionsInNumber.Contains(numerator / denominator)) fractionsInNumber.Add(numerator / denominator);
+
+
+                }
+            }
+            sum = fractionsInNumber.Sum();
+            return sum;
+    }
+}
 ```
 ### Test
 ```cs
@@ -149,7 +171,7 @@ public class Tests
 }
 ```
 Estimation: 25 minutes
-<br> Real time: 13 minutes
+<br> Real time: 12 minutes
 
 ---------------------------------------
 
