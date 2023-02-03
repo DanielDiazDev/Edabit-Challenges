@@ -1,8 +1,3 @@
-
-
-
-
-
 ## Working 9 to 5
 ### Write a function that calculates overtime and pay associated with overtime.
 ### Working 9 to 5: regular hours
@@ -35,26 +30,6 @@ From 17 to 18 is overtime, so 1 * 30 * 1.8 = 54
 
 ### Notes
 > N/A
-### Solution
-```cs
-
-```
-### Test
-```cs
-
-```
-Estimation: 20 minutes
-<br> Real time: 13 minutes
-
----------------------------------------
-
-##
-### 
-
-### Examples
-- 
-### Notes
-> 
 ### Solution
 ```cs
 
@@ -114,8 +89,8 @@ namespace Tests
 	}
 }
 ```
-Estimation: 20 minutes
-<br> Real time: 13 minutes
+Estimation: 25 minutes
+<br> Real time:  minutes
 
 ---------------------------------------
 
@@ -136,5 +111,25 @@ Estimation: 20 minutes
 ```
 Estimation: 20 minutes
 <br> Real time: 13 minutes
+
+---------------------------------------
+
+##
+### 
+
+### Examples
+- 
+### Notes
+> 
+### Solution
+```cs
+
+```
+### Test
+```cs
+
+```
+Estimation: 25 minutes
+<br> Real time:  minutes
 
 ---------------------------------------
