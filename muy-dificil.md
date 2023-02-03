@@ -32,7 +32,33 @@ From 17 to 18 is overtime, so 1 * 30 * 1.8 = 54
 > N/A
 ### Solution
 ```cs
+public class Challenge
+    {
+        public static string OverTime(double[] arr)
+        {
+            double startDay = arr[0];
+            double endDay = arr[1];
+            double hourlyRate = arr[2]; 
+            double overtimeMultiplier = arr[3];
+            double hours = 0;
+            double overHours = 0;
 
+            if(endDay <= 17)
+            {
+                hours = endDay - startDay;
+            }
+            else if(startDay <= 17)
+            {
+                hours = 17 - startDay;
+                overHours = endDay - 17;
+            }
+            else
+            {
+                overHours = endDay- startDay;
+            }
+            double total = (hours * hourlyRate) + (overHours * overtimeMultiplier * hourlyRate);
+            return "$" + string.Format("{0:0.00}", total);
+        }
 ```
 ### Test
 ```cs
@@ -90,7 +116,7 @@ namespace Tests
 }
 ```
 Estimation: 25 minutes
-<br> Real time:  minutes
+<br> Real time: 20  minutes
 
 ---------------------------------------
 
