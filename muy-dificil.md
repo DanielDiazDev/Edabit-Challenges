@@ -191,7 +191,25 @@ Estimation: 25 minutes
 > No punctuation or numbers will be included in the Tests.
 ### Solution
 ```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
+public class Program
+{
+    public static string TrueAlphabetic(string str)
+        {
+            List<char> lista = str.Replace(" ", "").OrderBy(x => x).ToList();
+            for(int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == ' ')
+                {
+                    lista.Insert(i, ' ');
+                }
+            }
+            return new string(lista.ToArray());
+        }
+}
 ```
 ### Test
 ```cs
@@ -213,6 +231,6 @@ public class Tests
 }
 ```
 Estimation: 25 minutes
-<br> Real time:  minutes
+<br> Real time: 15 minutes
 
 ---------------------------------------
