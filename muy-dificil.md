@@ -175,20 +175,42 @@ Estimation: 25 minutes
 
 ---------------------------------------
 
-##
-### 
+
+## True Alphabetical Order
+### Create a function which takes every letter in every word, and puts it in alphabetical order. Note how the original word lengths must stay the same.
 
 ### Examples
+- TrueAlphabetic("hello world") ➞ "dehll loorw"
+
+- TrueAlphabetic("edabit is awesome") ➞ "aabdee ei imosstw"
+
+- TrueAlphabetic("have a nice day") ➞ "aaac d eehi nvy"
 - 
 ### Notes
-> 
+> All sentences will be in lowercase.
+> No punctuation or numbers will be included in the Tests.
 ### Solution
 ```cs
 
 ```
 ### Test
 ```cs
+using NUnit.Framework;
+using System;
 
+[TestFixture]
+public class Tests
+{
+	[TestCase("hello world", Result="dehll loorw")]
+	[TestCase("edabit is awesome", Result="aabdee ei imosstw")]
+	[TestCase("have a nice day", Result="aaac d eehi nvy")]
+	[TestCase("i love to code", Result="c deei lo ootv")]
+	[TestCase("joshua senoron", Result="aehjnn ooorssu")]
+    public static string TestSolution(string str)
+    {
+        return Program.TrueAlphabetic(str);
+    }
+}
 ```
 Estimation: 25 minutes
 <br> Real time:  minutes
