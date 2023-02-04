@@ -81,26 +81,6 @@ Estimation: 30 minutes
 
 ---------------------------------------
 
-##
-### 
-
-### Examples
-- 
-### Notes
-> 
-### Solution
-```cs
-
-```
-### Test
-```cs
-
-```
-Estimation: 20 minutes
-<br> Real time: 13 minutes
-
----------------------------------------
-
 ## The Smallest Number
 ### Given a positive integer n, implement a function that finds the smallest number that is evenly divisible by the integers 1 through n inclusive. Return value as a string.
 
@@ -145,3 +125,23 @@ Estimation: 30 minutes
 <br> Real time:  minutes
 
 ---------------------------------------
+##
+### 
+
+### Examples
+- 
+### Notes
+> 
+### Solution
+```cs
+
+```
+### Test
+```cs
+
+```
+Estimation: 20 minutes
+<br> Real time: 13 minutes
+
+---------------------------------------
+
