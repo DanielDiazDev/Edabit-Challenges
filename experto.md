@@ -101,22 +101,47 @@ Estimation: 20 minutes
 
 ---------------------------------------
 
-##
-### 
+## The Smallest Number
+### Given a positive integer n, implement a function that finds the smallest number that is evenly divisible by the integers 1 through n inclusive. Return value as a string.
 
 ### Examples
-- 
+- Smallest(1) ➞ "1"
+
+- Smallest(5) ➞ "60"
+
+- Smallest(10) ➞ "2520"
+
+- Smallest(20) ➞ "232792560"
 ### Notes
-> 
+> You will need to cope with numbers larger than Int64.MaxValue (see Resources).
 ### Solution
 ```cs
 
 ```
 ### Test
 ```cs
+using NUnit.Framework;
+using System;
 
+[TestFixture]
+public class Tests
+{
+		[Test]
+		[TestCase(1, Result="1")]
+		[TestCase(10, Result="2520")]
+		[TestCase(17, Result="12252240")]
+		[TestCase(31, Result="72201776446800")]
+		[TestCase(99, Result="69720375229712477164533808935312303556800")]
+		[TestCase(100, Result="69720375229712477164533808935312303556800")]
+		[TestCase(101, Result="7041757898200960193617914702466542659236800")]	  
+		public static string TestSmallest(int n) 
+    {
+				Console.WriteLine($"Input: {n}");
+        return Program.Smallest(n);
+    }
+}
 ```
-Estimation: 20 minutes
-<br> Real time: 13 minutes
+Estimation: 30 minutes
+<br> Real time:  minutes
 
 ---------------------------------------
