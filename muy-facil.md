@@ -38,34 +38,34 @@ public class Tests {
 Estimation: 4 minutes
 <br>Real Time: 2 minutes
 
-##########################
-Convert Age to Days
-Create a function that takes the age in years and returns the age in days.
+## Convert Age to Days
+### Create a function that takes the age in years and returns the age in days.
 
 Examples
-calcAge(65) ➞ 23725
+- calcAge(65) ➞ 23725
 
-calcAge(0) ➞ 0
+- calcAge(0) ➞ 0
 
-calcAge(20) ➞ 7300
+- calcAge(20) ➞ 7300
 
 Notes
-Use 365 days as the length of a year for this challenge.
+> Use 365 days as the length of a year for this challenge.
 Ignore leap years and days between last birthday and now.
 Expect only positive integer inputs.
 
 
------------------
-
+Solution
+```cs
 public class Program 
 {
     public static int CalcAge(int age) 
     {
-			return age * 365;
+	return age * 365;
     }
 }
-
--------------------------
+```
+Test
+```cs
 using System;
 using NUnit.Framework;
 
@@ -81,13 +81,10 @@ public class Tests {
 		return Program.CalcAge(age);
 	}
 }
-
-------------------------------
+```
 
 estimación: 4 minutos 
 Tiempo real: 1 minutos
-
-################################
 
 Convert Minutes into Seconds
 Write a function that takes an integer minutes and converts it to seconds.
