@@ -174,7 +174,8 @@ Notes
 N/A
 ## Poker Hand Ranking
 ### In this challenge, you have to establish which kind of Poker combination is present in a deck of five cards. Every card is a string containing the card value (with the upper-case initial for face-cards) and the lower-case initial for suits, as in the examples below:
->  Name	Description
+
+###  Name	Description
 Royal Flush	A, K, Q, J, 10, all with the same suit.
 Straight Flush	Five cards in sequence, all with the same suit.
 Four of a Kind	Four cards of the same rank.
@@ -211,7 +212,36 @@ Given an array hand containing five strings being the cards, implement a functio
 ```
 ### Test
 ```cs
+using NUnit.Framework;
+using System;
 
+[TestFixture]
+public class Tests
+{
+		[Test]
+		[TestCase("10h Jh Qh Ah Kh", Result="Royal Flush")]
+		[TestCase("3h 5h Qs 9h Ad", Result="High Card")]
+    [TestCase("10s 10c 8d 10d 10h", Result="Four of a Kind")]
+    [TestCase("4h 9s 2s 2d Ad", Result="Pair")]
+    [TestCase("10s 9s 8s 6s 7s", Result="Straight Flush")]
+    [TestCase("10c 9c 9s 10s 9h", Result="Full House")]
+    [TestCase("8h 2h 8s 3s 3c", Result="Two Pair")]
+    [TestCase("Jh 9h 7h 5h 2h", Result="Flush")]
+    [TestCase("Ac Qc As Ah 2d", Result="Three of a Kind")]
+    [TestCase("Ad Kd Qd Jd 9d", Result="Flush")]
+    [TestCase("10h Jh Qs Ks Ac", Result="Straight")]
+    [TestCase("3h 8h 2s 3s 3d", Result="Three of a Kind")]
+    [TestCase("4h Ac 4s 4d 4c", Result="Four of a Kind")]
+    [TestCase("3h 8h 2s 3s 2d", Result="Two Pair")]
+    [TestCase("8h 8s As Qh Kh", Result="Pair")]
+    [TestCase("Js Qs 10s Ks As", Result="Royal Flush")]
+    [TestCase("Ah 3s 4d Js Qd", Result="High Card")] 
+		public static string TestPokerHandRanking(string hand) 
+    {
+				Console.WriteLine($"Input: {hand}");
+        return Program.PokerHandRanking(hand.Split(' '));
+    }
+}
 ```
 Estimation: 20 minutes
 <br> Real time: 13 minutes
