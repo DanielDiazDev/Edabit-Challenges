@@ -96,7 +96,46 @@ Estimation: 30 minutes
 > You will need to cope with numbers larger than Int64.MaxValue (see Resources).
 ### Solution
 ```cs
+using System;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 
+public class Program 
+{
+			public static string Smallest(int n)
+    {
+        BigInteger number = 1;
+        int divisor;
+        List<int> numbers = new List<int>();
+
+        if (n <= 1) return 1.ToString();
+
+        for (int i = 1; i <= n; i++)
+        {
+            numbers.Add(i);
+        }
+        
+        divisor = 2;
+        while (numbers.Count > 0)
+        {
+            if (numbers.Any(num => num % divisor == 0))
+            {
+                numbers = numbers.Select(num => num % divisor == 0 ? num / divisor : num).Where(num => num > 1).ToList();
+                number *= divisor;
+                divisor = 2;
+            }
+            else
+            {
+                divisor++;
+            }
+        }
+        return number.ToString();    
+    }
+}
 ```
 ### Test
 ```cs
