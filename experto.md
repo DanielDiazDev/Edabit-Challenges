@@ -19,7 +19,35 @@ Return an empty array if no three elements sum to zero.
 Return an empty array if there are fewer than three elements.
 ### Solution
 ```cs
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
+public class Program
+{
+	public static List<int[]> ThreeSum(int[] arr) 
+	{
+		List<int[]> listOfArrayThreeElementsThatSumZero = new List<int[]>();
+
+            for (int i = 0; i < arr.Length -2; i++)
+            {
+                for (int j =i+1; j< arr.Length -1; j++)
+                {
+                    for(int k = j + 1; k<arr.Length; k++)
+                    {
+                        if(arr[i]+arr[j]+arr[k] == 0)
+                        {
+                            if (!listOfArrayThreeElementsThatSumZero.Any(numbers => numbers[0] == arr[i] && numbers[1] == arr[j] && numbers[2] == arr[k]))
+                            {
+                                listOfArrayThreeElementsThatSumZero.Add(new int[] { arr[i], arr[j], arr[k] });
+                            }          
+                        }                       
+                    }
+                }
+            }
+            return listOfArrayThreeElementsThatSumZero;
+	}
+}
 ```
 ### Test
 ```cs
@@ -49,7 +77,7 @@ public class Tests
 }
 ```
 Estimation: 30 minutes
-<br> Real time:  minutes
+<br> Real time: 25  minutes
 
 ---------------------------------------
 
