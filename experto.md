@@ -161,7 +161,7 @@ public class Tests
 }
 ```
 Estimation: 30 minutes
-<br> Real time:  minutes
+<br> Real time: 27 minutes
 
 ---------------------------------------
 ##
