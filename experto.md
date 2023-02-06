@@ -172,7 +172,7 @@ Estimation: 30 minutes
 
 Notes
 N/A
-## Poker Hand Ranking
+## [Poker Hand Ranking](https://edabit.com/challenge/MnPogX5KgggaRpaJo)
 ### In this challenge, you have to establish which kind of Poker combination is present in a deck of five cards. Every card is a string containing the card value (with the upper-case initial for face-cards) and the lower-case initial for suits, as in the examples below:
 
 ###  Name	Description
