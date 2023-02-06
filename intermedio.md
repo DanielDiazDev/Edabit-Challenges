@@ -1,4 +1,4 @@
-## Reverse the Case
+## [Reverse the Case](https://edabit.com/challenge/99oN5igrbXddAjHEL)
 ### Given a string, create a function to reverse the case. All lower-cased letters should be upper-cased, and vice versa.
 
 
@@ -52,8 +52,8 @@ Estimation: 14 minutes
 
 -----------------------
 
-## Find the Largest Numbers in a Group of Arrays
-### Find the Largest Numbers in a Group of Arrays
+## [Find the Largest Numbers in a Group of Arrays](https://edabit.com/challenge/nermqxzovZbfFBC9X)
+### Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
 
 
 
@@ -106,7 +106,7 @@ Estimation: 15 minutes
 
 
 
-## Find the Bomb
+## [Find the Bomb](https://edabit.com/challenge/JYEufqRvkusjr5R58)
 ### Create a function that finds the word "bomb" in the given string (not case sensitive). If found, return "Duck!!!", otherwise, return "There is no bomb, relax.".
 
 
