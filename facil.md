@@ -1,4 +1,4 @@
-## Find the Smallest and Biggest Numbers
+## [Find the Smallest and Biggest Numbers](https://edabit.com/challenge/kMWmiNJM4szSv7dLd)
 ### Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
 ### Examples
@@ -57,7 +57,7 @@ Estimation: 10 minutes
 
 
 ------------------------------------
-## Convert Number to Corresponding Month Name
+## [Convert Number to Corresponding Month Name](https://edabit.com/challenge/uevxL5FNM77otyo9Z)
 ### Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
 
 Number	Month Name
@@ -159,7 +159,7 @@ Estimation: 7 minutes
 
 
 ------------------------------------
-## How Many Vowels?
+## [How Many Vowels?](https://edabit.com/challenge/5ytLyHsZHfyDhBgXr)
 ### Create a function that takes a string and returns the number (count) of vowels contained within it.
 
 ### Examples
