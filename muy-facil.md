@@ -1,4 +1,4 @@
-##  Return the Sum of Two Numbers 
+##  [Return the Sum of Two Numbers](https://edabit.com/challenge/xfRucdwGksiyjZq4K)
 ###  Create a function that takes two numbers as arguments and returns their sum.
 
 Examples
@@ -38,7 +38,7 @@ public class Tests {
 Estimation: 4 minutes
 <br>Real Time: 2 minutes
 
-## Convert Age to Days
+## [Convert Age to Days](https://edabit.com/challenge/nkkKguC5TgWnBiMLA)
 ### Create a function that takes the age in years and returns the age in days.
 
 Examples
@@ -86,27 +86,29 @@ public class Tests {
 estimación: 4 minutos 
 Tiempo real: 1 minutos
 
-Convert Minutes into Seconds
-Write a function that takes an integer minutes and converts it to seconds.
+## [Convert Minutes into Seconds](https://edabit.com/challenge/bizjGL4wyd8PwR4Ke)
+### Write a function that takes an integer minutes and converts it to seconds.
 
 Examples
-convert(5) ➞ 300
+- convert(5) ➞ 300
 
-convert(3) ➞ 180
+- convert(3) ➞ 180
 
-convert(2) ➞ 120
+- convert(2) ➞ 120
 Notes
-Don't forget to return the result.
+> Don't forget to return the result.
 If you get stuck on a challenge, find help in the Resources tab.
 If you're really stuck, unlock solutions in the Solutions tab.
 ------------
+```cs
 public class Program {
 	public static int convert(int minutes) {
 		return minutes * 60;
 	}
 }
+```
 ---------------------------------
-
+``` cs
 using System;
 using NUnit.Framework;
 
@@ -122,9 +124,9 @@ public class Tests {
 		return Program.convert(a);
 	}
 }
-
+```
 -------------------------------
 
 estimación: 4 minutos
-tiempo real: 1 minuto
+<br> tiempo real: 1 minuto
 
