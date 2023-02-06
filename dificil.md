@@ -1,7 +1,7 @@
 
 
 
-## Consecutive Numbers
+## [Consecutive Numbers](https://edabit.com/challenge/TAZywz6R2hu9tDQWc)
 ### Given a string, create a function to reverse the case. All lower-cased letters should be upper-cased, and vice versa.
 
 ### Examples
@@ -63,7 +63,7 @@ Estimation: 20 minutes
 
 
 
-## A Week Later
+## [A Week Later](https://edabit.com/challenge/y4esBva2cYph5QKg5)
 ### Create a function which takes in a date as a string, and returns the date a week after.
 
 ### Examples
@@ -160,7 +160,7 @@ Estimation: 15 minutes
 --------------------------
 
 
-## Cup Swapping
+## [Cup Swapping](https://edabit.com/challenge/X3btpQQEBeezX4jhK)
 ### There are three cups on a table, at positions A, B, and C. At the start, there is a ball hidden under the cup at position B.
 However, I perform several swaps on the cups, which is notated as two letters. For example, if I swap the cups at positions A and B, I could notate this as AB or BA.
 
