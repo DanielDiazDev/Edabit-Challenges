@@ -83,8 +83,8 @@ public class Tests {
 }
 ```
 
-estimación: 4 minutos 
-Tiempo real: 1 minutos
+Estimation: 4 minutes 
+Real Time: 1 minutes
 
 ## [Convert Minutes into Seconds](https://edabit.com/challenge/bizjGL4wyd8PwR4Ke)
 ### Write a function that takes an integer minutes and converts it to seconds.
@@ -127,6 +127,6 @@ public class Tests {
 ```
 -------------------------------
 
-estimación: 4 minutos
-<br> tiempo real: 1 minuto
+Estimation: 4 minutes
+<br> Real Time: 1 minute
 
