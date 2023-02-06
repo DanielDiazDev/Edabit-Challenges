@@ -1,4 +1,4 @@
-## Working 9 to 5
+## [Working 9 to 5](https://edabit.com/challenge/rkzH6YsPNgoJjn75i)
 ### Write a function that calculates overtime and pay associated with overtime.
 ### Working 9 to 5: regular hours
 ### After 5pm is overtime
@@ -120,7 +120,7 @@ Estimation: 25 minutes
 
 ---------------------------------------
 
-## Amount of Unique Fractions
+## [Amount of Unique Fractions](https://edabit.com/challenge/FXt7yKLgFi7SW6JBa)
 ### Create a function double UniqueFract(), which should sum all irreducible regular fractions between 0 and 1, in the numerator and denominator of which there are only single-digit numbers: 1/2, 1/3, 1/4, ... 2/3, 2/4, ... 8/9.
 
 ### Task
@@ -176,7 +176,7 @@ Estimation: 25 minutes
 ---------------------------------------
 
 
-## True Alphabetical Order
+## [True Alphabetical Order](https://edabit.com/challenge/q6xuJp5pBEPJTKfyE)
 ### Create a function which takes every letter in every word, and puts it in alphabetical order. Note how the original word lengths must stay the same.
 
 ### Examples
