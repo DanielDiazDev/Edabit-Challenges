@@ -1,4 +1,4 @@
-## Three Sum Problem
+## [Three Sum Problem](https://edabit.com/challenge/wrxoYop5uZKG4nNSb)
 ### Write a function that returns all sets of three elements that sum to 0.
 
 
