@@ -170,7 +170,7 @@ Estimation: 7 minutes
 - CountVowels("Prediction") ➞ 4
 
 ### Notes
-a, e, i, o, u are considered vowels (not y).
+> a, e, i, o, u are considered vowels (not y).
 All test cases are one word and only contain letters.
 
 ### Solution
@@ -211,6 +211,111 @@ public class Tests
         return Program.CountVowels(str);
     }
 }
+```
+Estimation: 7 minutes
+<br> Real time: 8 minutes
+------------
+## [Smaller String Number]([https://edabit.com/challenge/5ytLyHsZHfyDhBgXr](https://edabit.com/challenge/uBqpafqjoYNPuQ7Pr))
+### Create a function that returns the smaller number.
+
+### Examples
+- smallerNum("21", "44") ➞ "21"
+
+- smallerNum("1500", "1") ➞ "1"
+
+- smallerNum("5", "5") ➞ "5"
+
+### Notes
+> Numbers will be represented as strings, and your output should also be a string.
+If both numbers tie, return either number.
+Numbers will be positive.
+Bonus: See if you can do this without converting to integers.
+
+### Solution
+```cs
+public class Program
+{
+	public static string smallerNum(string n1, string n2)
+	{
+		if(n1.CompareTo(n2) < 0 && n1.Length <= n2.Length) 
+        {
+            return n1;
+        }
+        else
+        {
+            return n2;
+        }
+	}
+}
+```
+### Test
+```cs
+using NUnit.Framework;
+
+[TestFixture]
+public class TestSmallerNumShould
+    {
+        ////Requirements:
+        //Recibe 2 numbers as string
+        //Should return smallest 
+        //if both are equals, return any
+        //  BONUS: don't convert to integer
+        [SetUp]
+        public void Setup()
+        {
+
+        }
+
+        [Test]
+        public void ReturnFirstNumberWhenFirstNumberIsSmaller()
+        {
+            string firstNumber = "1";
+            string secondNumber = "2";
+
+            string result = Program.smallerNum(firstNumber, secondNumber);
+
+            Assert.AreEqual(firstNumber, result);
+
+
+        }
+        [Test]
+        public void ReturnSecondNumberWhenSecondNumberIsSmaller()
+        {
+            string firstNumber = "3";
+            string secondNumber = "2";
+
+            string result = Program.smallerNum(firstNumber, secondNumber);
+
+            Assert.AreEqual(secondNumber, result);
+
+
+        }
+        [Test]
+        public void ReturnAnyNumberWhenBothAreEquals()
+        {
+            string firstNumber = "2";
+            string secondNumber = "2";
+
+
+            string result = Program.smallerNum(firstNumber, secondNumber);
+
+            Assert.AreEqual("2", result);
+
+
+        }
+        [Test]
+        [TestCase("21", "44",  ExpectedResult = "21")]
+        [TestCase("153", "367", ExpectedResult = "153")]
+        [TestCase("1500", "16", ExpectedResult = "16")]
+        [TestCase("100", "23", ExpectedResult = "23")]
+        [TestCase("1500", "1", ExpectedResult = "1")]
+        [TestCase("5", "5", ExpectedResult = "5")]
+        public static string smallerNum(string n1, string n2)
+        {
+            return Program.smallerNum(n1, n2);
+        }
+
+    }
 ```
 Estimation: 7 minutes
 <br> Real time: 8 minutes
