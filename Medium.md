@@ -156,3 +156,98 @@ public class Tests
 ```
 Estimation: 15 minutes
 <br> Real time: 11 minutes
+
+
+## [Count Ones in Binary Representation of Integer]([https://edabit.com/challenge/JYEufqRvkusjr5R58](https://edabit.com/challenge/zn3A3AAzoE7vezw7Q))
+### Count the amount of ones in the binary representation of an integer. For example, since 12 is 1100 in binary, the return value should be 2.
+
+
+### Examples
+- CountOnes(0) ➞ 0
+
+- CountOnes(100) ➞ 3
+
+- CountOnes(999) ➞ 8
+
+### Notes
+> The input will always be a valid integer (number).
+
+### Solution
+```cs
+public class Program
+{
+    public static int CountOnes(int i)
+    {
+			int count = 0;
+        while (i > 0)
+        {
+            count += i % 2;
+            i /= 2;
+        }
+        return count;
+    }
+}
+```
+### Test
+```cs
+using System;
+using NUnit.Framework;
+
+[TestFixture]
+public class TestCountOnesShould
+    {
+        //count number of 1s 
+        [Test]
+        public void ReturnZeroWhenNumberZero()
+        {
+            int number = 0;
+
+            int result = Program.CountOnes(number);
+
+            Assert.Zero(result); 
+        }
+        [Test]
+        public void ReturnOneWhenNumberIsOne()
+        {
+            int number = 1;
+
+            int result = Program.CountOnes(number);
+
+            Assert.AreEqual(1, result);
+        }
+        [Test]
+        public void ReturnOneWhenNumberIsTwo()
+        {
+            int number = 2;
+
+            int result = Program.CountOnes(number);
+
+            Assert.AreEqual(1, result);
+        }
+        [Test]
+        public void ReturnTwoWhenNumberIsThree()
+        {
+            int number = 3;
+
+            int result = Program.CountOnes(number);
+
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        [TestCase(12, ExpectedResult = 2)]
+        [TestCase(100, ExpectedResult = 3)]
+        [TestCase(101, ExpectedResult = 4)]
+        [TestCase(999, ExpectedResult = 8)]
+        [TestCase(123456789, ExpectedResult = 16)]
+        [TestCase(1234567890, ExpectedResult = 12)]
+        public static int CountOnes(int i)
+        {
+            return Program.CountOnes(i);
+        }
+
+
+    }
+```
+Estimation: 15 minutes
+<br> Real time: 20 minutes
