@@ -187,6 +187,7 @@ Create a function that returns true if the number itself is a palindrome or any 
 // Number itself is a palindrome.
 ### Notes
 > Numbers will always have an even number of digits.
+>(Our decision): If number is odd(higher than 1) or is equal to 2, and is not palindrome then return false.
 ### Solution
 ```cs
 using System;
