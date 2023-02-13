@@ -163,6 +163,159 @@ public class Tests
 Estimation: 30 minutes
 <br> Real time: 27 minutes
 
+
+---------------------------------------
+
+## [Palindrome Descendant](https://edabit.com/challenge/PvCD5nSYy3Dnvnfcq)
+### A number may not be a palindrome, but its descendant can be. A number's direct child is created by summing each pair of adjacent digits to create the digits of the next number.
+
+For instance, 123312 is not a palindrome, but its next child 363 is, where: 3 = 1 + 2; 6 = 3 + 3; 3 = 1 + 2.
+
+Create a function that returns true if the number itself is a palindrome or any of its des
+
+### Examples
+- PalindromeDescendant(11211230) ➞ false
+// 11211230 ➞ 2333 ➞ 56
+
+- palindromeDescendant(13001120) ➞ true
+// 13001120 ➞ 4022 ➞ 44
+
+- PalindromeDescendant(23336014) ➞ true
+// 23336014 ➞ 5665
+
+- PalindromeDescendant(11) ➞ true
+// Number itself is a palindrome.
+### Notes
+> Numbers will always have an even number of digits.
+### Solution
+```cs
+using System;
+using System.Linq;
+
+public class Program 
+{
+    public static bool PalindromeDescendant(int num)
+    {
+       string numAsSTring = num.ToString();
+        if(numAsSTring.Length < 2)
+        {
+            return false;
+        }
+
+        if((numAsSTring.Length % 2 == 1 || numAsSTring.Length == 2) && !IsPalindrome(numAsSTring)) return false;
+
+        if(IsPalindrome(numAsSTring))
+        {
+            return true;
+        }
+        else
+        {
+            return PalindromeDescendant(GetDescendant(numAsSTring));
+        }
+    }
+
+    static bool IsPalindrome(string numberAsString)
+    {
+        return numberAsString.Equals(string.Concat(numberAsString.Reverse()));
+    }
+
+
+    static int GetDescendant(string numberAsString)
+    {
+        string finalNumberAsString="";
+        for(int i = 0; i < numberAsString.Length; i += 2)
+        {
+            finalNumberAsString += (int.Parse(numberAsString[i].ToString()) + int.Parse(numberAsString[i + 1].ToString())).ToString();
+
+        }
+        // if (finalNumberAsString.Length > numberAsString.Length / 2) return 0;
+        return int.Parse(finalNumberAsString);
+    }
+}
+```
+### Test
+```cs
+using NUnit.Framework;
+using System;
+
+public class TestPalindromeDescendantShould
+    {
+        [Test]
+        public void ReturnFalseWhenNumberLengthLessThanTwo()
+        {
+            int number = 1;
+
+            bool result = Program.PalindromeDescendant(number);
+
+            Assert.IsFalse(result);
+        }
+        
+
+        [Test]
+        public void ReturnTrueWhenNumberIsPalindromeAndNumberLengthIsEqualOrHigherThanTwo()
+        {
+            int number = 22;
+            int number2 = 363;
+
+            bool result = Program.PalindromeDescendant(number);
+            bool result2 = Program.PalindromeDescendant(number2);
+
+            Assert.IsTrue(result);
+            Assert.IsTrue(result2);
+        }
+        [Test]
+        public void ReturnFalseWhenNumberIsNotPalindromeAndNumberLengthIsTwo()
+        {
+            int number = 56;
+
+            bool result = Program.PalindromeDescendant(number);
+
+
+            Assert.IsFalse(result);
+        }
+        [Test]
+        public void ReturnFalseWhenNumberIsNotPalindromeAndNumberLengthIsOddAndHigherThanOne()
+        {
+            int number = 456;
+            int number2 = 56123;
+
+            bool result = Program.PalindromeDescendant(number);
+            bool result2 = Program.PalindromeDescendant(number2);
+
+            Assert.IsFalse(result);
+            Assert.IsFalse(result2);
+        }
+        [Test]
+        public void ReturnTrueWhenDescendantIsPalindrome()
+        {
+            int number = 132231;
+            int number2 = 13456322;
+
+            bool result = Program.PalindromeDescendant(number);
+            bool result2 = Program.PalindromeDescendant(number2);
+
+            Assert.IsTrue(result);
+            Assert.IsTrue(result2);
+        }
+        [Test]
+        public void ReturnFalseWhenNumberAndAllDescendantsAreNotPalindrome()
+        {
+            int number = 11211230;
+            int number2 = 97358817;
+
+            bool result = Program.PalindromeDescendant(number);
+            bool result2 = Program.PalindromeDescendant(number2);
+
+            Assert.IsFalse(result);
+            Assert.IsFalse(result2);
+        }
+
+
+    }
+```
+Estimation: 60 minutes
+<br> Real time: 90 minutes (Test + Requeriments + solution)
+
 ---------------------------------------
 
 
