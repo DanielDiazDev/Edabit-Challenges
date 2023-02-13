@@ -230,7 +230,6 @@ public class Program
             finalNumberAsString += (int.Parse(numberAsString[i].ToString()) + int.Parse(numberAsString[i + 1].ToString())).ToString();
 
         }
-        // if (finalNumberAsString.Length > numberAsString.Length / 2) return 0;
         return int.Parse(finalNumberAsString);
     }
 }
