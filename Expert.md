@@ -373,18 +373,7 @@ public class Program
     {
         string[] ranksOrder = new string[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
         string[] suits = new string[] { "s", "h", "c", "d" };
-        //Dictionary<Func<string[], bool>, string> conditions = new Dictionary<Func<string[], bool>, string>();
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasAllCardsWithSameSuit(h) && HandHasCardsInSequence(h) && h.Any(c => CardRank(c) == "A")); }), "Royal Flush");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasAllCardsWithSameSuit(hand) && HandHasCardsInSequence(hand)); }), "Straight Flush");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasSameRanks(hand, new int[] { 4 })); }), "Four of a Kind");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasSameRanks(hand, new int[] { 3, 2 })); }), "Full House");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasAllCardsWithSameSuit(hand)); }), "Flush");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasCardsInSequence(hand)); }), "Straight");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasSameRanks(hand, new int[] { 3 })); }), "Three of a Kind");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasSameRanks(hand, new int[] { 2, 2 })); }), "Two Pair");
-        //conditions.Add(new Func<string[], bool>((h) => { return (HandHasSameRanks(hand, new int[] { 2 })); }), "Pair");
-        //conditions.Add(new Func<string[], bool>((h) => { return true; }), "High Card");
-
+        
 
 
         
@@ -399,11 +388,7 @@ public class Program
 
         if (hand.GroupBy(c => c).Count() != 5) throw new InvalidDataException("There are repeated cards");
 
-        //foreach ( KeyValuePair< Func<string[], bool>,string >condition in conditions)
-        //{
-        //    if (condition.Key(hand)) return condition.Value;
-        //}
-
+        
         //return "";
 
         if (HandHasAllCardsWithSameSuit(hand) && HandHasCardsInSequence(hand, ranksOrder) && hand.Any(c => CardRank(c) == "A")) return "Royal Flush";
