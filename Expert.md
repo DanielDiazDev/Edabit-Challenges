@@ -477,8 +477,8 @@ public class Tests
     }
 }
 ```
-Estimation: ++++
-<br> Real time: ++++
+Estimation: 2h
+<br> Real time: 1h 30m
 
 ---------------------------------------
 
