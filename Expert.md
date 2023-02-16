@@ -193,6 +193,7 @@ Create a function that returns true if the number itself is a palindrome or any 
 ```cs
 using System;
 using System.Linq;
+using System.IO;
 
 public class Program 
 {
@@ -450,32 +451,146 @@ using NUnit.Framework;
 using System;
 
 [TestFixture]
-public class Tests
-{
-		[Test]
-		[TestCase("10h Jh Qh Ah Kh", Result="Royal Flush")]
-		[TestCase("3h 5h Qs 9h Ad", Result="High Card")]
-    [TestCase("10s 10c 8d 10d 10h", Result="Four of a Kind")]
-    [TestCase("4h 9s 2s 2d Ad", Result="Pair")]
-    [TestCase("10s 9s 8s 6s 7s", Result="Straight Flush")]
-    [TestCase("10c 9c 9s 10s 9h", Result="Full House")]
-    [TestCase("8h 2h 8s 3s 3c", Result="Two Pair")]
-    [TestCase("Jh 9h 7h 5h 2h", Result="Flush")]
-    [TestCase("Ac Qc As Ah 2d", Result="Three of a Kind")]
-    [TestCase("Ad Kd Qd Jd 9d", Result="Flush")]
-    [TestCase("10h Jh Qs Ks Ac", Result="Straight")]
-    [TestCase("3h 8h 2s 3s 3d", Result="Three of a Kind")]
-    [TestCase("4h Ac 4s 4d 4c", Result="Four of a Kind")]
-    [TestCase("3h 8h 2s 3s 2d", Result="Two Pair")]
-    [TestCase("8h 8s As Qh Kh", Result="Pair")]
-    [TestCase("Js Qs 10s Ks As", Result="Royal Flush")]
-    [TestCase("Ah 3s 4d Js Qd", Result="High Card")] 
-		public static string TestPokerHandRanking(string hand) 
-    {
-				Console.WriteLine($"Input: {hand}");
-        return Program.PokerHandRanking(hand.Split(' '));
+public class TestPokerHandRankingShould
+        {
+            /*
+                 * recibir array de string de 5 elementos, donde cada elemento es una carta
+                 * separar cada carta por valor(letras may o numeros) y palo(letra min)
+                 * retorna un string en base a la condicion de mayor valor que cumpla
+                 *funciones a realizar para cumplir con las condiciones:   
+                    * contar cantidad de cartas iguales 
+                    * determinar si los valores de las cartas estan en secuencia
+                    * determinar si todas las cartas son del mismo palo
+                    * Royal Flush, la mano debe contener A 
+             */
+            [Test]
+            public void ReturnNullException()
+            {
+                string[] handNull = null;
+
+                var exception = Assert.Throws<InvalidDataException>(() => Program.PokerHandRanking(handNull));
+
+                Assert.AreEqual("Hand Parameter is null", exception.Message);
+            }
+
+            [Test]
+            public void ReturnInvalidsCardsException()
+            {
+                string[] hand = { "3h", "5h", "Qs", "13h", "10h" };
+
+                var exception = Assert.Throws<InvalidDataException>(() => Program.PokerHandRanking(hand));
+
+                Assert.AreEqual("There are invalid cards", exception.Message);
+            }
+            [Test]
+            public void ReturnInvalidsCardsExceptionWithNullValue()
+            {
+                string[] hand = { "3h", "5h", "Qs", "9y", null };
+
+                var exception = Assert.Throws<InvalidDataException>(() => Program.PokerHandRanking(hand));
+
+                Assert.AreEqual("There are cards with null value", exception.Message);
+            }
+
+            [Test]
+            public void ReturnRepeatedCardsException()
+            {
+                string[] hand = { "3h", "5h", "Qs", "9h", "9h" };
+
+                var exception = Assert.Throws<InvalidDataException>(() => Program.PokerHandRanking(hand));
+
+                Assert.AreEqual("There are repeated cards", exception.Message);
+            }
+
+
+            [Test]
+            public void ReturnInvalidNumberOfCardsException()
+            {
+                string[] hand1 = new string[] { "3h", "5h", "Qs", "9h"};
+                string[] hand2 = new string[] { "3h", "5h", "Qs", "9h", "Ad","2s" };
+                
+
+                var exception1 = Assert.Throws <InvalidDataException>(()=> Program.PokerHandRanking(hand1));
+                var exception2 = Assert.Throws<InvalidDataException>(() => Program.PokerHandRanking(hand2));
+                
+
+                Assert.AreEqual("Hand has not five Cards", exception1.Message);
+                Assert.AreEqual("Hand has not five Cards", exception2.Message);
+               
+
+            }
+
+            [Test]
+            public void ReturnHighCard()
+            {
+                string[] cards = new string[] { "3h", "5h", "Qs", "9h", "Ad" };
+
+                string result = Program.PokerHandRanking(cards);
+
+                Assert.AreEqual("High Card", result);
+            }
+            [Test]
+            public void ReturnSameRanksCollections()
+            {
+                string[] cardsRanks_4 = new string[] { "10s", "10c", "8d", "10d", "10h" };
+                string[] cardsRanks_3_2 = new string[] { "10c", "9c", "9s", "10s", "9h" };
+                string[] cardsRanks_3 = new string[] { "10c", "9c", "9s", "3s", "9h" };
+                string[] cards_2_2 = new string[] { "3h", "8h", "2s", "3s", "2d" };
+                string[] cards_2 = new string[] { "8h", "8s", "As", "Qh", "Kh" };
+
+                string result_4 = Program.PokerHandRanking(cardsRanks_4);
+                string result_3_2 = Program.PokerHandRanking(cardsRanks_3_2);
+                string result_3 = Program.PokerHandRanking(cardsRanks_3);
+                string result_2_2 = Program.PokerHandRanking(cards_2_2);
+                string result_2 = Program.PokerHandRanking(cards_2);
+
+                Assert.AreEqual("Four of a Kind", result_4);
+                Assert.AreEqual("Full House", result_3_2);
+                Assert.AreEqual("Three of a Kind", result_3);
+                Assert.AreEqual("Two Pair", result_2_2);
+                Assert.AreEqual("Pair", result_2);
+            }
+
+            [Test]
+            public void ReturnFlush()
+            {
+                string[] cards = new string[] { "Ad", "Kd", "Qd", "Jd", "9d" };
+
+                string result = Program.PokerHandRanking(cards);
+
+                Assert.AreEqual("Flush", result);
+            }
+            [Test]
+            public void ReturnStraight()
+            {
+                string[] cards = new string[] { "10h", "Jh", "Qs" ,"Ks", "Ac" };
+
+                string result = Program.PokerHandRanking(cards);
+
+                Assert.AreEqual("Straight", result);
+            }
+            [Test]
+            public void ReturnStraightFlush()
+            {
+                string[] cards = new string[] { "10h", "Jh", "Qh" ,"Kh", "9h" };
+
+                string result = Program.PokerHandRanking(cards);
+
+                Assert.AreEqual("Straight Flush", result);
+            }
+            [Test]
+            public void ReturnRoyalFlush()
+            {
+                string[] cards = new string[] { "10h", "Jh", "Qh", "Ah", "Kh" };
+
+                string result = Program.PokerHandRanking(cards);
+
+                Assert.AreEqual("Royal Flush", result);
+            }
+
+
+            
     }
-}
 ```
 Estimation: 2h
 <br> Real time: 1h 30m
