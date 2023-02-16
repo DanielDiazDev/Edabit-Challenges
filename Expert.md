@@ -388,8 +388,7 @@ public class Program
 
         if (hand.GroupBy(c => c).Count() != 5) throw new InvalidDataException("There are repeated cards");
 
-        
-        //return "";
+       
 
         if (HandHasAllCardsWithSameSuit(hand) && HandHasCardsInSequence(hand, ranksOrder) && hand.Any(c => CardRank(c) == "A")) return "Royal Flush";
         if (HandHasAllCardsWithSameSuit(hand) && HandHasCardsInSequence(hand, ranksOrder)) return "Straight Flush";
