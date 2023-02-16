@@ -362,7 +362,87 @@ Given an array hand containing five strings being the cards, implement a functio
 
 ### Solution
 ```cs
+using System;
+using System.Linq;
+using System.IO;
 
+public class Program
+{
+	public static string PokerHandRanking(string[] hand)
+    {
+        string[] ranksOrder = new string[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+        string[] suits = new string[] { "s", "h", "c", "d" };
+
+        if (hand == null) throw new InvalidDataException("Hand Parameter is null");
+        if (hand.Length != 5) throw new InvalidDataException("Hand has not five Cards");
+
+        if (hand.Any(c => c == null)) throw new InvalidDataException("There are cards with null value");
+
+        if (hand.Any(c => !ranksOrder.Contains(CardRank(c)) || !suits.Contains(CardSuit(c)))) throw new InvalidDataException("There are invalid cards");
+
+        if (hand.GroupBy(c => c).Count() != 5) throw new InvalidDataException("There are repeated cards");
+
+
+        if (HandHasAllCardsWithSameSuit(hand) && HandHasCardsInSequence(hand) && hand.Any(c => CardRank(c) == "A")) return "Royal Flush";
+        if (HandHasAllCardsWithSameSuit(hand) && HandHasCardsInSequence(hand)) return "Straight Flush";
+        if (HandHasSameRanks(hand, new int[] { 4 })) return "Four of a Kind";
+        if (HandHasSameRanks(hand, new int[] { 3, 2 })) return "Full House";
+        if (HandHasAllCardsWithSameSuit(hand)) return "Flush";
+        if (HandHasCardsInSequence(hand)) return "Straight";
+        if (HandHasSameRanks(hand, new int[] { 3 })) return "Three of a Kind";
+        if (HandHasSameRanks(hand, new int[] { 2, 2 })) return "Two Pair";
+        if (HandHasSameRanks(hand, new int[] { 2 })) return "Pair";
+        return "High Card";
+
+
+
+
+    }
+
+    static bool HandHasCardsInSequence(string[] hand)
+    {
+        string[] ranksOrder = new string[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+
+        int[] rankIndexOrdered = hand.Select(c => Array.IndexOf(ranksOrder, CardRank(c))).OrderBy(i => i).ToArray();
+
+        int actualIndex = rankIndexOrdered.First();
+
+        for (int i = 0; i < rankIndexOrdered.Length; i++)
+        {
+            if (rankIndexOrdered[i] != actualIndex) return false;
+
+            actualIndex++;
+        }
+        return true;
+    }
+
+
+    static bool HandHasAllCardsWithSameSuit(string[] hand)
+    {
+        return hand.GroupBy(card => CardSuit(card)).Count() == 1;
+    }
+
+
+    static bool HandHasSameRanks(string[] hand, int[] ranksCounts)
+    {
+        return hand.GroupBy(c => CardRank(c))
+            .Select(r => r.Count())
+            .Where(rc => rc > 1)
+            .OrderBy(rc => rc)
+            .SequenceEqual(ranksCounts.OrderBy(rc => rc));
+    }
+
+    static string CardRank(string card)
+    {
+        return string.Concat(card
+            .Where(character => char.IsNumber(character) || char.IsUpper(character)));
+    }
+
+    static string CardSuit(string card)
+    {
+        return string.Concat(card.Where(character => char.IsLower(character)));
+    }
+}
 ```
 ### Test
 ```cs
