@@ -199,39 +199,45 @@ public class Program
 {
     public static bool PalindromeDescendant(int num)
     {
-       string numAsSTring = num.ToString();
-        if(numAsSTring.Length < 2)
+        if (num < 0)
         {
-            return false;
+            throw new InvalidDataException("Parameter number is negative");
         }
+        string numAsSTring = num.ToString();
 
-        if((numAsSTring.Length % 2 == 1 || numAsSTring.Length == 2) && !IsPalindrome(numAsSTring)) return false;
-
-        if(IsPalindrome(numAsSTring))
+        if (numAsSTring.Length % 2 != 0 && numAsSTring.Length>=2)
+        {
+            throw new InvalidDataException("Parameter number doesn't have an even number of digits");
+        }
+        return CheckPalindromeDescendant(numAsSTring);
+    }
+    public static bool CheckPalindromeDescendant(string numAsSTring)
+    {
+        if (IsPalindrome(numAsSTring))
         {
             return true;
         }
+        else if ((numAsSTring.Length % 2 == 1 && numAsSTring.Length > 2) || numAsSTring.Length == 2)
+        {
+            return false;
+        }
         else
         {
-            return PalindromeDescendant(GetDescendant(numAsSTring));
+            return CheckPalindromeDescendant(GetDescendant(numAsSTring));
         }
-    }
-
+     }
     static bool IsPalindrome(string numberAsString)
     {
         return numberAsString.Equals(string.Concat(numberAsString.Reverse()));
     }
-
-
-    static int GetDescendant(string numberAsString)
+    static string GetDescendant(string numberAsString)
     {
-        string finalNumberAsString="";
-        for(int i = 0; i < numberAsString.Length; i += 2)
+        string finalNumberAsString = "";
+        for (int i = 0; i < numberAsString.Length; i += 2)
         {
             finalNumberAsString += (int.Parse(numberAsString[i].ToString()) + int.Parse(numberAsString[i + 1].ToString())).ToString();
-
         }
-        return int.Parse(finalNumberAsString);
+        return finalNumberAsString;
     }
 }
 ```
@@ -243,21 +249,29 @@ using System;
 public class TestPalindromeDescendantShould
     {
         [Test]
-        public void ReturnFalseWhenNumberLengthLessThanTwo()
+        public void ReturnNegativeParameterNumberException()
         {
-            int number = 1;
+            int number = -2121;
 
-            bool result = Program.PalindromeDescendant(number);
+            var exception = Assert.Throws<InvalidDataException>(() => Program.PalindromeDescendant(number));
 
-            Assert.IsFalse(result);
+            Assert.AreEqual("Parameter number is negative", exception.Message);
         }
-        
+        [Test]
+        public void ReturnNotEvenDigitsParameterNumberException()
+        {
+            int number = 13567;
 
+            var exception = Assert.Throws<InvalidDataException>(() => Program.PalindromeDescendant(number));
+
+            Assert.AreEqual("Parameter number doesn't have an even number of digits", exception.Message);
+        }
+      
         [Test]
         public void ReturnTrueWhenNumberIsPalindromeAndNumberLengthIsEqualOrHigherThanTwo()
         {
             int number = 22;
-            int number2 = 363;
+            int number2 = 214230;
 
             bool result = Program.PalindromeDescendant(number);
             bool result2 = Program.PalindromeDescendant(number2);
@@ -276,10 +290,22 @@ public class TestPalindromeDescendantShould
             Assert.IsFalse(result);
         }
         [Test]
-        public void ReturnFalseWhenNumberIsNotPalindromeAndNumberLengthIsOddAndHigherThanOne()
+        public void ReturnFalseWhenNumberAndAllDescendantsAreNotPalindrome()
         {
-            int number = 456;
-            int number2 = 56123;
+            int number = 11211230;
+            int number2 = 97358817;
+
+            bool result = Program.PalindromeDescendant(number);
+            bool result2 = Program.PalindromeDescendant(number2);
+
+            Assert.IsFalse(result);
+            Assert.IsFalse(result2);
+        }
+        [Test]
+        public void ReturnFalseWhenDescendantIsNotPalindromeAndLengthIsOddAndHigherThanOne()
+        {
+            int number = 112133;
+            int number2 = 214422; 
 
             bool result = Program.PalindromeDescendant(number);
             bool result2 = Program.PalindromeDescendant(number2);
@@ -299,21 +325,7 @@ public class TestPalindromeDescendantShould
             Assert.IsTrue(result);
             Assert.IsTrue(result2);
         }
-        [Test]
-        public void ReturnFalseWhenNumberAndAllDescendantsAreNotPalindrome()
-        {
-            int number = 11211230;
-            int number2 = 97358817;
-
-            bool result = Program.PalindromeDescendant(number);
-            bool result2 = Program.PalindromeDescendant(number2);
-
-            Assert.IsFalse(result);
-            Assert.IsFalse(result2);
-        }
-
-
-    }
+	}
 ```
 Estimation: 60 minutes
 <br> Real time: 90 minutes (Test + Requeriments + solution)
